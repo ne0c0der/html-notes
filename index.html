@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Notes App</title>
+  <style>
+    body { font-family: Arial; margin: 20px; }
+    #notes { display: flex; flex-wrap: wrap; gap: 10px; }
+    .note { background: #f4f4f4; padding: 10px; border-radius: 5px; }
+  </style>
+</head>
+<body>
+  <h1>My Notes</h1>
+  <input id="noteInput" placeholder="Write a note...">
+  <button onclick="addNote()">Add</button>
+  <div id="notes"></div>
+
+  <script>
+    const notesDiv = document.getElementById('notes');
+    function addNote() {
+      const input = document.getElementById('noteInput');
+      if (input.value.trim() !== '') {
+        const note = document.createElement('div');
+        note.className = 'note';
+        note.textContent = input.value;
+        notesDiv.appendChild(note);
+        input.value = '';
+      }
+    }
+  </script>
+</body>
+</html>
